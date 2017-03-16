@@ -27,10 +27,19 @@ public class DownloadDuLieu extends AsyncTask<String, Void, String> {
         try {
             URL url = new URL(strings[0]);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            //neu du lieu hien thi dang json thi dùng
+//            connection.setRequestProperty("Content-Type" , "text/json; charset=utf-8");
+            //end json
+
             connection.setRequestMethod("POST");
             //mo output stream va nhan du lieu tra ve
             connection.setDoOutput(true);
             connection.setDoInput(true);
+
+            //json thi dung 2 dong nay và ko can uri builder
+//            JSONObject jMaLoaiCha = new JSONObject();
+//            jMaLoaiCha.put("maloaicha", strings[1]);
+            //end
             Uri.Builder uri = new Uri.Builder();
             uri.appendQueryParameter("maloaicha", strings[1]) ; //post maloaicha o vi tri 1
             String dulieupost = uri.build().getEncodedQuery();

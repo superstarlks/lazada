@@ -32,6 +32,8 @@ public class TrangChuActivity extends AppCompatActivity implements ViewDownloadI
         String duongdan = "http://192.168.0.25:8181/weblazada/loaisanpham.php";
         PresenterDownloadLogic presenterDownloadLogic = new PresenterDownloadLogic(TrangChuActivity.this,duongdan,maloaicha);
         presenterDownloadLogic.downloaddulieu();
+
+
     }
 
     @Override

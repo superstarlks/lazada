@@ -1,7 +1,13 @@
 package com.letrunghung.lazada.Presenter.TrangChu;
 
+import android.util.Log;
+
 import com.letrunghung.lazada.Model.TrangChu.DownloadDuLieu;
 import com.letrunghung.lazada.View.TrangChu.ViewDownloadImp;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
@@ -21,10 +27,20 @@ public class PresenterDownloadLogic implements PresenterDownloadImp {
 
     @Override
     public void downloaddulieu() {
-        DownloadDuLieu downloadDuLieu = new DownloadDuLieu();
-        downloadDuLieu.execute(duongdan,maloaicha);
+        DownloadDuLieu TaiDuLieu = new DownloadDuLieu();
+        TaiDuLieu.execute(duongdan,maloaicha);
+
         try {
-            String dulieu = downloadDuLieu.get();
+            String dulieuPaser =TaiDuLieu.get();
+            JSONObject jsonObject = new JSONObject(dulieuPaser);
+            JSONArray jsLoaiSanPham = jsonObject.getJSONArray("LOAISANPHAM");
+            for (int i=0 ; i<jsLoaiSanPham.length() ; i++)
+            {
+                JSONObject dulieu = jsLoaiSanPham.getJSONObject(i);
+                String tensanpham = dulieu.getString("TENLOAISP");
+                Log.d("JSON", tensanpham);
+            }
+            String dulieu = TaiDuLieu.get();
             if (dulieu==null || dulieu.equals("")){
                 dulieu = "Kiểm tra lại kết nối";
                 viewDownloadImp.downloadthatbai(dulieu);
@@ -34,6 +50,8 @@ public class PresenterDownloadLogic implements PresenterDownloadImp {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
