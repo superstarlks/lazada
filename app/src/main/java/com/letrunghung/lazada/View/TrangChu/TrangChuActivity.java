@@ -1,48 +1,48 @@
 package com.letrunghung.lazada.View.TrangChu;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import com.letrunghung.lazada.Presenter.TrangChu.PresenterDownloadLogic;
+import com.letrunghung.lazada.Adapter.ViewPagerAdapter;
 import com.letrunghung.lazada.R;
 
-public class TrangChuActivity extends AppCompatActivity implements ViewDownloadImp, View.OnClickListener {
-
-    EditText edMaLoaiCha;
-    Button btnLayDuLieu;
+public class TrangChuActivity extends AppCompatActivity {
+    Toolbar toolbar;
+    TabLayout tabLayout;
+    ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trangchu_layout);
-        edMaLoaiCha = (EditText) findViewById(R.id.edMaLoaiCha);
-        btnLayDuLieu = (Button) findViewById(R.id.btnLayDuLieu);
-        btnLayDuLieu.setOnClickListener(this);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setSupportActionBar(toolbar); // gan toolbar cho action bar
+
+        //truyen adapter vao cho viewpager
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager); // gan view cho tab layout
+
+
+    }
+
+    /*begin : fai co 2 ham nay khi lam menu*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menutrangchu,menu);
+        return true;
     }
 
     @Override
-    public void onClick(View view) {
-        String maloaicha = edMaLoaiCha.getText().toString(); //ko phan biet kieu du lieu nen string hay int deu dc, ko can parse
-        //dia chi local genemotion: 10.0.3.2
-        // may ao android: 127.0.0.1
-        //test tren máy thật thì fai dùng chung 1 mạng thì mới connect dc. 192.168.0.25
-        String duongdan = "http://192.168.0.25:8181/weblazada/loaisanpham.php";
-        PresenterDownloadLogic presenterDownloadLogic = new PresenterDownloadLogic(TrangChuActivity.this,duongdan,maloaicha);
-        presenterDownloadLogic.downloaddulieu();
-
-
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
+    /*end menu*/
 
-    @Override
-    public void downloadthanhcong(String dulieu) {
-        Toast.makeText(this, dulieu, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void downloadthatbai(String dulieu) {
-        Toast.makeText(this, dulieu, Toast.LENGTH_SHORT).show();
-    }
 }
