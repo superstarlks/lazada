@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.letrunghung.lazada"
-        minSdkVersion 10
+        minSdkVersion 15
         targetSdkVersion 24
         versionCode 25
         versionName "1.0"
@@ -26,6 +26,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.20.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
     testCompile 'junit:junit:4.12'
 }
