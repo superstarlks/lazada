@@ -14,9 +14,6 @@ import android.widget.EditText;
 import com.letrunghung.lazada.R;
 
 
-/**
- * Created by Lenovo S410p on 6/30/2016.
- */
 public class ClearEditText extends EditText {
     Drawable crossx,nonecrossx,drawable;
     Boolean visible = false;

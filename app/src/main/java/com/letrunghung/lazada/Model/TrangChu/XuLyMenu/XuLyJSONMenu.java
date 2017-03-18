@@ -47,13 +47,13 @@ public class XuLyJSONMenu {
         String duongdan = TrangChuActivity.SERVER_NAME;
 
         HashMap<String,String> hsHam = new HashMap<>();
-//        hsHam.put("ham","LayDanhSachMenu");
+        hsHam.put("ham","LayDanhSachMenu");
 
         HashMap<String,String> hsMaLoaiCha = new HashMap<>();
         hsMaLoaiCha.put("maloaicha",String.valueOf(maloaisp));
 
         attrs.add(hsMaLoaiCha);
-//        attrs.add(hsHam);
+        attrs.add(hsHam);
 
         DownloadJSON downloadJSON = new DownloadJSON(duongdan,attrs);
         //end phương thức post
