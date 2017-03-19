@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1045587638556",
+    "project_id": "project--1971319003138845069"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045587638556:android:79ada29002e4c666",
+        "android_client_info": {
+          "package_name": "com.letrunghung.lazada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045587638556-fvugrhbicilf23l1vuaok2s27omsf64f.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1045587638556-pqdrnbs84b5vr402cga20evhtkvkadnh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letrunghung.lazada",
+            "certificate_hash": "0c100546fb4bfb2d26d3770e6a12c3427bd7eefa"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7OlBTD6habQIN03oLv_DaMqXE4sz1a-g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
