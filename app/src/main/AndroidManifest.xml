@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.letrunghung.lazada">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <activity android:name=".View.ManHinhChao.ManHinhChaoActivity"
-            android:screenOrientation="portrait"
-            >
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name=".View.ManHinhChao.ManHinhChaoActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.TrangChu.TrangChuActivity" android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".View.DangNhap_DangKy.DangNhapActivity" android:screenOrientation="portrait"
+        <activity
+            android:name=".View.TrangChu.TrangChuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".View.DangNhap_DangKy.DangNhapActivity"
             android:label="Đăng nhập/Đăng ký"
-            >
-        </activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.HienThiSanPhamTheoDanhMuc.HienThiSanPhamTheoDanhMucActivity" />
+        <activity android:name=".View.ChiTietSanPham.ChiTietSanPhamActivity"></activity>
     </application>
 
 </manifest>
