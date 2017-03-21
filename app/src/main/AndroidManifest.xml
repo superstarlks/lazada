@@ -3,6 +3,7 @@
     package="com.letrunghung.lazada">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -30,8 +31,14 @@
             android:name=".View.DangNhap_DangKy.DangNhapActivity"
             android:label="Đăng nhập/Đăng ký"
             android:screenOrientation="portrait" />
-        <activity android:name=".View.HienThiSanPhamTheoDanhMuc.HienThiSanPhamTheoDanhMucActivity" />
-        <activity android:name=".View.ChiTietSanPham.ChiTietSanPhamActivity"></activity>
+        <activity android:name=".View.ChiTietSanPham.ChiTietSanPhamActivity" />
+        <activity android:name=".View.DanhGia.DanhSachDanhGiaActivity" />
+        <activity
+            android:name=".View.DanhGia.ThemDanhGiaActivity"
+            android:theme="@style/Base.Theme.AppCompat.Dialog" />
+        <activity android:name=".View.GioHang.GioHangActivity" />
+        <activity android:name=".View.ThanhToan.ThanhToanActivity" />
+        <activity android:name=".View.TimKiem.TimKiemActivity"></activity>
     </application>
 
 </manifest>

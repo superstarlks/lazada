@@ -1,5 +1,6 @@
 package com.letrunghung.lazada.View.ChiTietSanPham;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -25,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.letrunghung.lazada.Adapter.AdapterDanhGia;
 import com.letrunghung.lazada.Adapter.AdapterViewPagerSlider;
 import com.letrunghung.lazada.Model.ObjectClass.ChiTietKhuyenMai;
 import com.letrunghung.lazada.Model.ObjectClass.ChiTietSanPham;
@@ -33,6 +36,10 @@ import com.letrunghung.lazada.Model.ObjectClass.SanPham;
 import com.letrunghung.lazada.Presenter.ChiTietSanPham.FragmentSliderChiTietSanPham;
 import com.letrunghung.lazada.Presenter.ChiTietSanPham.PresenterLogicChiTietSanPham;
 import com.letrunghung.lazada.R;
+import com.letrunghung.lazada.View.DanhGia.DanhSachDanhGiaActivity;
+import com.letrunghung.lazada.View.DanhGia.ThemDanhGiaActivity;
+import com.letrunghung.lazada.View.GioHang.GioHangActivity;
+import com.letrunghung.lazada.View.ThanhToan.ThanhToanActivity;
 import com.letrunghung.lazada.View.TrangChu.TrangChuActivity;
 
 import java.io.ByteArrayOutputStream;
@@ -200,8 +207,8 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         giaoDienCustomGioHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent iGioHang = new Intent(ChiTietSanPhamActivity.this, GioHangActivity.class);
-//                startActivity(iGioHang);
+                Intent iGioHang = new Intent(ChiTietSanPhamActivity.this, GioHangActivity.class);
+                startActivity(iGioHang);
             }
         });
 
@@ -291,15 +298,15 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         int id = v.getId();
         switch (id){
             case R.id.txtVietDanhGia:
-//                Intent iThemDanhGia = new Intent(this, ThemDanhGiaActivity.class);
-//                iThemDanhGia.putExtra("masp",masp);
-//                startActivity(iThemDanhGia);
+                Intent iThemDanhGia = new Intent(this, ThemDanhGiaActivity.class);
+                iThemDanhGia.putExtra("masp",masp);
+                startActivity(iThemDanhGia);
                 ;break;
 
             case R.id.txtXemTatCaNhanXet:
-//                Intent iDanhSachDanhGia = new Intent(ChiTietSanPhamActivity.this, DanhSachDanhGiaActivity.class);
-//                iDanhSachDanhGia.putExtra("masp",masp);
-//                startActivity(iDanhSachDanhGia);
+                Intent iDanhSachDanhGia = new Intent(ChiTietSanPhamActivity.this, DanhSachDanhGiaActivity.class);
+                iDanhSachDanhGia.putExtra("masp",masp);
+                startActivity(iDanhSachDanhGia);
                 break;
 
             case R.id.imThemGioHang:
@@ -319,34 +326,34 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
                 break;
 
             case R.id.btnMuaNgay:
-//                Fragment fragment1 = fragmentList.get(0);
-//                View view1 = fragment1.getView();
-//                ImageView imageView1 = (ImageView) view1.findViewById(R.id.imHinhSlider);
-//                Bitmap bitmap1 = ((BitmapDrawable)imageView1.getDrawable()).getBitmap();
-//
-//                ByteArrayOutputStream byteArrayOutputStream1 = new ByteArrayOutputStream();
-//                bitmap1.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream1);
-//                byte[] hinhsanphamgiohang1 = byteArrayOutputStream1.toByteArray();
-//
-//                sanPhamGioHang.setHinhgiohang(hinhsanphamgiohang1);
-//                sanPhamGioHang.setSOLUONG(1);
-//
-//                presenterLogicChiTietSanPham.ThemGioHang(sanPhamGioHang,this);
-//
-//                Intent iThanhToan = new Intent(ChiTietSanPhamActivity.this, ThanhToanActivity.class);
-//                startActivity(iThanhToan);
+                Fragment fragment1 = fragmentList.get(0);
+                View view1 = fragment1.getView();
+                ImageView imageView1 = (ImageView) view1.findViewById(R.id.imHinhSlider);
+                Bitmap bitmap1 = ((BitmapDrawable)imageView1.getDrawable()).getBitmap();
+
+                ByteArrayOutputStream byteArrayOutputStream1 = new ByteArrayOutputStream();
+                bitmap1.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream1);
+                byte[] hinhsanphamgiohang1 = byteArrayOutputStream1.toByteArray();
+
+                sanPhamGioHang.setHinhgiohang(hinhsanphamgiohang1);
+                sanPhamGioHang.setSOLUONG(1);
+
+                presenterLogicChiTietSanPham.ThemGioHang(sanPhamGioHang,this);
+
+                Intent iThanhToan = new Intent(ChiTietSanPhamActivity.this, ThanhToanActivity.class);
+                startActivity(iThanhToan);
                 break;
         }
     }
 
     @Override
     public void HienThiDanhGia(List<DanhGia> danhGiaList) {
-//        AdapterDanhGia adapterDanhGia = new AdapterDanhGia(this,danhGiaList,3);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerDanhGiaChiTiet.setLayoutManager(layoutManager);
-//        recyclerDanhGiaChiTiet.setAdapter(adapterDanhGia);
-//
-//        adapterDanhGia.notifyDataSetChanged();
+        AdapterDanhGia adapterDanhGia = new AdapterDanhGia(this,danhGiaList,3);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerDanhGiaChiTiet.setLayoutManager(layoutManager);
+        recyclerDanhGiaChiTiet.setAdapter(adapterDanhGia);
+
+        adapterDanhGia.notifyDataSetChanged();
     }
 
     @Override

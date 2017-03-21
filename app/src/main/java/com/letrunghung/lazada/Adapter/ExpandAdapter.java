@@ -2,6 +2,10 @@ package com.letrunghung.lazada.Adapter;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -17,6 +21,7 @@ import android.widget.TextView;
 import com.letrunghung.lazada.Model.ObjectClass.LoaiSanPham;
 import com.letrunghung.lazada.Model.TrangChu.XuLyMenu.XuLyJSONMenu;
 import com.letrunghung.lazada.R;
+import com.letrunghung.lazada.View.HienThiSanPhamTheoDanhMuc.HienThiSanPhamTheoDanhMucActivity;
 
 import java.util.List;
 
@@ -125,21 +130,21 @@ public class ExpandAdapter extends BaseExpandableListAdapter {
         viewGroupCha.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-//                FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//                HienThiSanPhamTheoDanhMucActivity hienThiSanPhamTheoDanhMucActivity = new HienThiSanPhamTheoDanhMucActivity();
-//
-//                Bundle bundle = new Bundle();
-//
-//                bundle.putInt("MALOAI",loaiSanPhams.get(vitriGroupCha).getMALOAISP());
-//                bundle.putBoolean("KIEMTRA",false);
-//                bundle.putString("TENLOAI",loaiSanPhams.get(vitriGroupCha).getTENLOAISP());
-//
-//                hienThiSanPhamTheoDanhMucActivity.setArguments(bundle);
-//                fragmentTransaction.addToBackStack("TrangChuActivity");
-//                fragmentTransaction.replace(R.id.themFragment,hienThiSanPhamTheoDanhMucActivity);
-//                fragmentTransaction.commit();
+                FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                HienThiSanPhamTheoDanhMucActivity hienThiSanPhamTheoDanhMucActivity = new HienThiSanPhamTheoDanhMucActivity();
+
+                Bundle bundle = new Bundle();
+
+                bundle.putInt("MALOAI",loaiSanPhams.get(vitriGroupCha).getMALOAISP());
+                bundle.putBoolean("KIEMTRA",false);
+                bundle.putString("TENLOAI",loaiSanPhams.get(vitriGroupCha).getTENLOAISP());
+
+                hienThiSanPhamTheoDanhMucActivity.setArguments(bundle);
+                fragmentTransaction.addToBackStack("TrangChuActivity");
+                fragmentTransaction.replace(R.id.themFragment,hienThiSanPhamTheoDanhMucActivity);
+                fragmentTransaction.commit();
 
                 return false;
             }
